@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MKBTC0 AI HUB | AI News</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-gradient"></div>
+
+    <nav class="navbar">
+        <div class="logo">◆ MKBTC0 AI HUB ◆</div>
+        <div class="nav-links">
+            <a href="index.html">🏠 home</a>
+            <a href="allAI.html">📁 ai directory</a>
+            <a href="news.html">📰 ai news</a>
+            <a href="console.html" class="active">💻 console</a>
+            <a href="logs.html">📋 logs</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="page-header">
+            <div class="live-badge">
+                <span class="live-dot"></span>
+                LIVE NEWS FEED
+            </div>
+            <h1>📰 AI NEWS · FULL FEED</h1>
+            <p>Real-time AI news from around the world. Updated every 2 minutes.</p>
+        </div>
+
+        <div class="news-controls">
+            <button id="refreshNewsBtn" class="btn-outline-small">🔄 Refresh News</button>
+            <span id="lastUpdateTime" class="last-update">Last update: --:--:--</span>
+        </div>
+
+        <div class="news-container full-news" id="newsFullContainer">
+            <div class="loading">📡 Loading news from GNews API...</div>
+        </div>
+
+        <div class="info-note">
+            <p>📡 Source: GNews API · News by tags: AI, Machine Learning, Artificial Intelligence</p>
+        </div>
+
+        <footer class="footer">
+            <p>Created by Markuss Karpovs 4252</p>
+            <a href="https://github.com/mk-btc0" target="_blank" class="github-link">[ GitHub: mk-btc0 ]</a>
+        </footer>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalMsg"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

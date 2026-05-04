@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MKBTC0 AI HUB | AI Terminal Console</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .console-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .console-window {
+            background: #0a0c15;
+            border-radius: 16px;
+            border: 1px solid #1e293b;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        .console-header {
+            background: #0f172a;
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .console-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .console-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .console-dot.red { background: #f43f5e; }
+        .console-dot.yellow { background: #fbbf24; }
+        .console-dot.green { background: #10b981; }
+        
+        .console-title {
+            color: #64748b;
+            font-size: 0.85rem;
+            font-family: monospace;
+            margin-left: auto;
+        }
+        
+        .console-body {
+            height: 500px;
+            overflow-y: auto;
+            padding: 1rem;
+            font-family: 'Courier New', 'Fira Code', monospace;
+            font-size: 0.9rem;
+            background: #0a0c15;
+        }
+        
+        .console-line {
+            margin-bottom: 0.3rem;
+            line-height: 1.5;
+            word-break: break-word;
+        }
+        
+        .console-line.system {
+            color: #10b981;
+        }
+        
+        .console-line.error {
+            color: #f43f5e;
+        }
+        
+        .console-line.warning {
+            color: #fbbf24;
+        }
+        
+        .console-line.command {
+            color: #38bdf8;
+        }
+        
+        .console-input-line {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid #1e293b;
+        }
+        
+        .console-prompt {
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .console-input {
+            background: transparent;
+            border: none;
+            color: #e2e8f0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            flex: 1;
+            outline: none;
+        }
+        
+        .command-list {
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .command-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .command-item {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: #38bdf8;
+        }
+        
+        .command-desc {
+            color: #64748b;
+            font-size: 0.7rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #38bdf8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+
+    <nav class="navbar">
+        <div class="logo">◆ MKBTC0 AI HUB ◆</div>
+        <div class="nav-links">
+            <a href="index.html">🏠 home</a>
+            <a href="allAI.html">📁 ai directory</a>
+            <a href="news.html">📰 ai news</a>
+            <a href="console.html" class="active">💻 console</a>
+            <a href="logs.html">📋 logs</a>
+        </div>
+    </nav>
+
+    <div class="console-container">
+        <!-- Command Help Section -->
+        <div class="command-list">
+            <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">📟 AI TERMINAL COMMANDS</h3>
+            <div class="command-grid">
+                <div><span class="command-item">/help</span><br><span class="command-desc">Show all commands</span></div>
+                <div><span class="command-item">/back</span><br><span class="command-desc">Go back to previous page</span></div>
+                <div><span class="command-item">/leave</span><br><span class="command-desc">Exit to homepage</span></div>
+                <div><span class="command-item">/logs</span><br><span class="command-desc">Show navigation history</span></div>
+                <div><span class="command-item">/clear</span><br><span class="command-desc">Clear terminal screen</span></div>
+                <div><span class="command-item">/clearlogs</span><br><span class="command-desc">Clear all logs</span></div>
+                <div><span class="command-item">/ai [question]</span><br><span class="command-desc">Ask AI a question</span></div>
+                <div><span class="command-item">/fact</span><br><span class="command-desc">Random AI fact</span></div>
+                <div><span class="command-item">/news</span><br><span class="command-desc">Latest AI news</span></div>
+                <div><span class="command-item">/tools</span><br><span class="command-desc">List AI tools</span></div>
+                <div><span class="command-item">/time</span><br><span class="command-desc">Current time</span></div>
+                <div><span class="command-item">/stats</span><br><span class="command-desc">Server statistics</span></div>
+            </div>
+        </div>
+
+        <!-- Console Window -->
+        <div class="console-window">
+            <div class="console-header">
+                <div class="console-dots">
+                    <div class="console-dot red"></div>
+                    <div class="console-dot yellow"></div>
+                    <div class="console-dot green"></div>
+                </div>
+                <div class="console-title">AI TERMINAL v1.0 — MKBTC0</div>
+            </div>
+            <div class="console-body" id="consoleBody">
+                <div class="console-line system">╔══════════════════════════════════════════════╗</div>
+                <div class="console-line system">║     MKBTC0 AI TERMINAL v1.0                  ║</div>
+                <div class="console-line system">║     Type /help to see available commands    ║</div>
+                <div class="console-line system">╚══════════════════════════════════════════════╝</div>
+                <div class="console-line system">[SYSTEM] Terminal initialized successfully.</div>
+                <div class="console-line system">[SYSTEM] Navigation logs: <span id="logCount">0</span> entries</div>
+                <div class="console-line system">──────────────────────────────────────────────</div>
+            </div>
+            <div class="console-input-line">
+                <span class="console-prompt">user@ai:~$</span>
+                <input type="text" id="consoleInput" class="console-input" placeholder="Type a command..." autofocus>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========== CONSOLE HISTORY & LOGS ==========
+        let consoleHistory = [];
+        let historyIndex = -1;
+        let navigationLogs = [];
+
+        // Load logs from localStorage
+        function loadLogs() {
+            const saved = localStorage.getItem('ai_navigation_logs');
+            if (saved) {
+                try {
+                    navigationLogs = JSON.parse(saved);
+                    updateLogCount();
+                } catch(e) {}
+            }
+        }
+
+        function saveLogs() {
+            localStorage.setItem('ai_navigation_logs', JSON.stringify(navigationLogs));
+            updateLogCount();
+        }
+
+        function updateLogCount() {
+            const countSpan = document.getElementById('logCount');
+            if (countSpan) countSpan.textContent = navigationLogs.length;
+        }
+
+        function addLog(action, url = null) {
+            const logEntry = {
+                timestamp: new Date().toISOString(),
+                time: new Date().toLocaleTimeString(),
+                action: action,
+                page: url || window.location.pathname
+            };
+            navigationLogs.push(logEntry);
+            saveLogs();
+            updateLogCount();
+        }
+
+        // Add initial log
+        loadLogs();
+        addLog('Terminal opened', '/console.html');
+
+        // ========== CONSOLE FUNCTIONS ==========
+        const consoleBody = document.getElementById('consoleBody');
+        const consoleInput = document.getElementById('consoleInput');
+
+        function addConsoleLine(text, type = 'system') {
+            const line = document.createElement('div');
+            line.className = `console-line ${type}`;
+            line.innerHTML = text;
+            consoleBody.appendChild(line);
+            consoleBody.scrollTop = consoleBody.scrollHeight;
+        }
+
+        function clearConsole() {
+            consoleBody.innerHTML = '';
+            addConsoleLine('╔══════════════════════════════════════════════╗', 'system');
+            addConsoleLine('║     MKBTC0 AI TERMINAL v1.0                  ║', 'system');
+            addConsoleLine('║     Terminal cleared. Type /help             ║', 'system');
+            addConsoleLine('╚══════════════════════════════════════════════╝', 'system');
+            addConsoleLine('[SYSTEM] Console cleared.', 'system');
+            addConsoleLine(`[SYSTEM] Navigation logs: ${navigationLogs.length} entries`, 'system');
+        }
+
+        function showHelp() {
+            addConsoleLine('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'system');
+            addConsoleLine('📟 AVAILABLE COMMANDS:', 'command');
+            addConsoleLine('  /help      - Show this help message', 'command');
+            addConsoleLine('  /back      - Go back to previous page', 'command');
+            addConsoleLine('  /leave     - Exit to homepage', 'command');
+            addConsoleLine('  /logs      - Show navigation history', 'command');
+            addConsoleLine('  /clear     - Clear terminal screen', 'command');
+            addConsoleLine('  /clearlogs - Clear all navigation logs', 'command');
+            addConsoleLine('  /ai [text] - Ask AI a question', 'command');
+            addConsoleLine('  /fact      - Random AI fact', 'command');
+            addConsoleLine('  /news      - Latest AI news', 'command');
+            addConsoleLine('  /tools     - List all AI tools', 'command');
+            addConsoleLine('  /time      - Show current time', 'command');
+            addConsoleLine('  /stats     - Show server statistics', 'command');
+            addConsoleLine('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'system');
+        }
+
+        function showLogs() {
+            if (navigationLogs.length === 0) {
+                addConsoleLine('[LOGS] No navigation logs found.', 'warning');
+                return;
+            }
+            addConsoleLine('━━━━━━━━━━━━━━━ NAVIGATION LOGS ━━━━━━━━━━━━━━━', 'system');
+            navigationLogs.slice().reverse().forEach((log, i) => {
+                addConsoleLine(`  [${log.time}] ${log.action} → ${log.page}`, 'command');
+            });
+            addConsoleLine(`━━━━━━━━━━━━━━━ Total: ${navigationLogs.length} entries ━━━━━━━━━━━━━━━`, 'system');
+        }
+
+        function clearLogs() {
+            navigationLogs = [];
+            saveLogs();
+            addConsoleLine('[LOGS] All navigation logs cleared.', 'system');
+        }
+
+        function showAIFact() {
+            const facts = [
+                "GPT-3 was trained on 45 TB of text data (about 500 billion words)!",
+                "The term 'Artificial Intelligence' was coined in 1956 by John McCarthy.",
+                "Deep Blue beat Garry Kasparov at chess in 1997 — first computer to beat a world champion.",
+                "Neural networks are inspired by the human brain's structure.",
+                "ChatGPT reached 1 million users in just 5 days after launch.",
+                "AI can now generate images, music, video, and even 3D models.",
+                "The global AI market is expected to reach $1.8 trillion by 2030.",
+                "OpenAI's GPT-4 has 1.7 trillion parameters!",
+                "Claude 3 has a 200,000 token context window (can read entire novels).",
+                "Midjourney was trained on hundreds of millions of images."
+            ];
+            const fact = facts[Math.floor(Math.random() * facts.length)];
+            addConsoleLine(`💡 AI FACT: ${fact}`, 'system');
+        }
+
+        function showTime() {
+            const now = new Date();
+            addConsoleLine(`📅 Current date/time: ${now.toLocaleString()}`, 'system');
+        }
+
+        function showStats() {
+            const serverLoad = Math.floor(Math.random() * 17 + 80);
+            const gpuUtil = Math.floor(Math.random() * 11 + 88);
+            const dataTB = (Math.random() * 1800 + 600).toFixed(0);
+            addConsoleLine('━━━━━━━━━━━━━━━ SERVER STATISTICS ━━━━━━━━━━━━━━━', 'system');
+            addConsoleLine(`  🌍 Global Server Load: ${serverLoad}%`, 'command');
+            addConsoleLine(`  ⚡ GPU Utilization: ${gpuUtil}%`, 'command');
+            addConsoleLine(`  💾 Data Processed (24h): ${dataTB} TB`, 'command');
+            addConsoleLine(`  🔄 Active Requests: ${Math.floor(Math.random() * 100000 + 35000).toLocaleString()}`, 'command');
+            addConsoleLine(`  📊 Total Users: ${Math.floor(Math.random() * 5000 + 10000).toLocaleString()}`, 'command');
+            addConsoleLine('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'system');
+        }
+
+        function askAI(question) {
+            if (!question) {
+                addConsoleLine('[ERROR] Please provide a question. Example: /ai what is GPT?', 'error');
+                return;
+            }
+            addConsoleLine(`🤖 AI: Processing your question...`, 'system');
+            setTimeout(() => {
+                const answers = [
+                    `Great question about "${question.substring(0, 50)}"! AI is evolving rapidly.`,
+                    `I think you're asking something interesting. The answer involves deep learning.`,
+                    `Based on my knowledge, this relates to neural networks and transformer architecture.`,
+                    `That's a complex topic! In simple terms, AI learns from data patterns.`,
+                    `Check the AI Directory for tools that can help with "${question.substring(0, 30)}..."`
+                ];
+                const answer = answers[Math.floor(Math.random() * answers.length)];
+                addConsoleLine(`🤖 ${answer}`, 'system');
+            }, 500);
+        }
+
+        function listTools() {
+            const tools = [
+                "ChatGPT - Conversational AI",
+                "Claude 3 - Large context AI",
+                "Midjourney - AI image generation",
+                "DALL-E 3 - OpenAI image model",
+                "GitHub Copilot - AI coding assistant",
+                "Perplexity AI - AI search engine",
+                "Runway - AI video generation",
+                "Stable Diffusion - Open source image AI"
+            ];
+            addConsoleLine('━━━━━━━━━━━━━━━ AI TOOLS DIRECTORY ━━━━━━━━━━━━━━━', 'system');
+            tools.forEach(tool => addConsoleLine(`  🔧 ${tool}`, 'command'));
+            addConsoleLine('━━━━━━━━━━━━━ More at /ai-directory ━━━━━━━━━━━━━━', 'system');
+        }
+
+        function showNews() {
+            addConsoleLine('📰 Fetching latest AI news...', 'system');
+            setTimeout(() => {
+                const news = [
+                    "OpenAI announces GPT-5 with 1M token context",
+                    "Google DeepMind releases new weather prediction AI",
+                    "Claude 3 beats GPT-4 on coding benchmarks",
+                    "EU passes landmark AI regulation act"
+                ];
+                news.forEach(n => addConsoleLine(`  📰 ${n}`, 'command'));
+                addConsoleLine('  🔗 Type /news-full for more', 'command');
+            }, 500);
+        }
+
+        // ========== COMMAND PROCESSING ==========
+        function processCommand(input) {
+            const cmd = input.trim().toLowerCase();
+            
+            if (cmd === '/help') {
+                showHelp();
+            }
+            else if (cmd === '/clear') {
+                clearConsole();
+            }
+            else if (cmd === '/logs') {
+                showLogs();
+            }
+            else if (cmd === '/clearlogs') {
+                clearLogs();
+            }
+            else if (cmd === '/back') {
+                addConsoleLine('[COMMAND] Going back to previous page...', 'system');
+                addLog('Back command used - returning to previous page');
+                setTimeout(() => {
+                    if (document.referrer && document.referrer !== '') {
+                        window.location.href = document.referrer;
+                    } else {
+                        window.location.href = 'index.html';
+                    }
+                }, 500);
+            }
+            else if (cmd === '/leave') {
+                addConsoleLine('[COMMAND] Exiting to homepage...', 'system');
+                addLog('Leave command - exiting to homepage');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 500);
+            }
+            else if (cmd === '/fact') {
+                showAIFact();
+            }
+            else if (cmd === '/time') {
+                showTime();
+            }
+            else if (cmd === '/stats') {
+                showStats();
+            }
+            else if (cmd === '/tools') {
+                listTools();
+            }
+            else if (cmd === '/news') {
+                showNews();
+            }
+            else if (cmd.startsWith('/ai ')) {
+                const question = cmd.substring(4);
+                askAI(question);
+            }
+            else if (cmd === '') {
+                // do nothing
+            }
+            else {
+                addConsoleLine(`[ERROR] Unknown command: ${cmd}. Type /help for available commands.`, 'error');
+            }
+            
+            addLog(`Executed command: ${cmd}`, '/console.html');
+        }
+
+        // Handle input
+        consoleInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const command = consoleInput.value;
+                if (command.trim()) {
+                    addConsoleLine(`user@ai:~$ ${command}`, 'command');
+                    processCommand(command);
+                    consoleHistory.push(command);
+                    historyIndex = consoleHistory.length;
+                }
+                consoleInput.value = '';
+            }
+        });
+
+        // History navigation (up/down arrows)
+        consoleInput.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    consoleInput.value = consoleHistory[historyIndex];
+                }
+            } else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (historyIndex < consoleHistory.length - 1) {
+                    historyIndex++;
+                    consoleInput.value = consoleHistory[historyIndex];
+                } else {
+                    historyIndex = consoleHistory.length;
+                    consoleInput.value = '';
+                }
+            }
+        });
+
+        // Focus input on page load
+        consoleInput.focus();
+        
+        addConsoleLine('[SYSTEM] Ready. Type /help to begin.', 'system');
+        // ========== LOG COMMANDS TO GLOBAL LOG SYSTEM ==========
+function logToGlobal(type, action, detail) {
+    // Add to the central log system if available
+    if (typeof addLog === 'function') {
+        addLog(type, action, detail);
+    } else {
+        // Fallback - store in localStorage directly
+        const logs = JSON.parse(localStorage.getItem('aihub_activity_logs') || '[]');
+        logs.push({
+            id: Date.now(),
+            timestamp: new Date().toISOString(),
+            time: new Date().toLocaleTimeString(),
+            type: type,
+            action: action,
+            detail: detail
+        });
+        if (logs.length > 500) logs.shift();
+        localStorage.setItem('aihub_activity_logs', JSON.stringify(logs));
+    }
+}
+
+// Hook into your existing processCommand function
+const originalProcess = processCommand;
+window.processCommand = function(cmd) {
+    logToGlobal('command', `Executed: ${cmd.substring(0, 100)}`, 'from AI Terminal');
+    return originalProcess(cmd);
+};
+    </script>
+</body>
+</html>

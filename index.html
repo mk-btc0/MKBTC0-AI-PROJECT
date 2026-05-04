@@ -1,0 +1,153 @@
+<!--
+╔══════════════════════════════════════════════╗
+║     MKBTC0                                   ║
+║     Rnu                                      ║
+╚══════════════════════════════════════════════╝
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MKBTC0 AI HUB | Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    
+    <nav class="navbar">
+        <div class="logo">◆ MKBTC0 AI HUB ◆</div>
+        <div class="nav-links">
+            <a href="index.html">🏠 home</a>
+            <a href="allAI.html">📁 ai directory</a>
+            <a href="news.html">📰 ai news</a>
+            <a href="console.html" class="active">💻 console</a>
+            <a href="logs.html">📋 logs</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="hero-section">
+            <div class="hero-badge">✦ YOUR AI COMPANION ✦</div>
+            <h1 class="hero-title">Explore.<br>Learn.<br>Create with <span class="gradient-text">AI</span>.</h1>
+            <p class="hero-desc">MKBTC0 AI Hub is a platform where you'll find everything about generative artificial intelligence.<br>The latest news, AI tools catalog, and prompt guides all in one place.</p>
+            <div class="hero-buttons">
+                <a href="allAI.html" class="btn-primary">⚡ Explore AI Tools</a>
+                <a href="news.html" class="btn-secondary">📰 Read AI News</a>
+            </div>
+        </div>
+
+        <div class="stats-panel">
+            <div class="stat-card">
+                <span class="stat-label">🌍 GLOBAL SERVER LOAD</span>
+                <span class="stat-value" id="serverLoad">89%</span>
+                <div class="progress-bar"><div class="progress-fill" id="loadFill" style="width: 89%"></div></div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">⚡ GPU UTILIZATION</span>
+                <span class="stat-value" id="gpuUtil">94%</span>
+                <div class="progress-bar"><div class="progress-fill" id="gpuFill" style="width: 94%"></div></div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">💾 DATA PROCESSED (24h)</span>
+                <span class="stat-value" id="dataProcessed">847 TB</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">🔄 ACTIVE REQUESTS</span>
+                <span class="stat-value" id="activeReqs">47,281</span>
+            </div>
+        </div>
+
+        <!-- What is this site about -->
+        <div class="about-section">
+            <h2>📌 What is MKBTC0 AI Hub?</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">📰</div>
+                    <h3>AI News</h3>
+                    <p>Fresh news from the world of artificial intelligence — OpenAI, Google, Anthropic and more.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🔧</div>
+                    <h3>AI Directory</h3>
+                    <p>Over 25 AI tools with descriptions, pricing, and direct links.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">📖</div>
+                    <h3>Prompt Guide</h3>
+                    <p>How to write prompts properly to get the best results from neural networks.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">📊</div>
+                    <h3>Live Stats</h3>
+                    <p>Realistic statistics of AI server loads from around the world.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prompt Engineering Guide -->
+        <div class="section">
+            <h2>📖 PROMPT ENGINEERING GUIDE</h2>
+            <div class="prompt-grid">
+                <div class="prompt-card">
+                    <div class="prompt-icon">✏️</div>
+                    <h3>Basic Structure</h3>
+                    <code>[ROLE] + [TASK] + [CONTEXT] + [FORMAT]</code>
+                    <p><strong>Example:</strong> <em>"You are a senior developer. Write Python code for a REST API using FastAPI. Return only the code."</em></p>
+                </div>
+                <div class="prompt-card">
+                    <div class="prompt-icon">⚡</div>
+                    <h3>Advanced Techniques</h3>
+                    <ul>
+                        <li><strong>Few-shot:</strong> "Here are examples: ... Now do the same"</li>
+                        <li><strong>Chain-of-Thought:</strong> "Let's think step by step"</li>
+                        <li><strong>Negative prompting:</strong> "Don't use complex terminology"</li>
+                    </ul>
+                </div>
+                <div class="prompt-card">
+                    <div class="prompt-icon">🎯</div>
+                    <h3>Where to Use?</h3>
+                    <p>ChatGPT · Claude · Gemini · DeepSeek · Local LLMs</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- How to use prompts -->
+        <div class="section">
+            <h2>⌨️ HOW TO USE PROMPTS</h2>
+            <div class="instruction-box">
+                <div class="instruction-step">
+                    <span class="step-num">1</span>
+                    <p>Open any AI platform (ChatGPT, Claude, Perplexity)</p>
+                </div>
+                <div class="instruction-step">
+                    <span class="step-num">2</span>
+                    <p>Copy a prompt template from our guide</p>
+                </div>
+                <div class="instruction-step">
+                    <span class="step-num">3</span>
+                    <p>Paste it into the chat and press Enter</p>
+                </div>
+                <div class="instruction-step">
+                    <span class="step-num">4</span>
+                    <p>Refine responses to get the best results</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Created by Markuss Karpovs 4252</p>
+            <a href="https://github.com/mk-btc0" target="_blank" class="github-link">[ GitHub: mk-btc0 ]</a>
+        </footer>
+    </main>
+    
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalMsg"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

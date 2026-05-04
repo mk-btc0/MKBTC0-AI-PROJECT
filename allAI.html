@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MKBTC0 AI HUB | AI Directory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-gradient"></div>
+
+    <nav class="navbar">
+        <div class="logo">◆ MKBTC0 AI HUB ◆</div>
+        <div class="nav-links">
+            <a href="index.html">🏠 home</a>
+            <a href="allAI.html" class="active">📁 ai directory</a>
+            <a href="news.html">📰 ai news</a>
+            <a href="console.html">💻 console</a>
+            <a href="logs.html">📋 logs</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>🌐 GLOBAL AI DIRECTORY</h1>
+            <p>All major AI tools — descriptions, pricing, and official links</p>
+        </div>
+
+        <div class="search-section">
+            <input type="text" id="aiSearch" placeholder="🔍 Search AI tool by name or category..." class="search-input">
+            <button id="searchBtn" class="search-btn">⟫ SEARCH</button>
+            <button id="resetBtn" class="search-btn reset">⟳ RESET</button>
+        </div>
+
+        <div id="aiGrid" class="ai-grid">
+            <div class="loading">📡 Loading AI tools...</div>
+        </div>
+
+        <div class="info-note">
+            <p>💡 Tip: Click "ACCESS TOOL" to visit official website.</p>
+        </div>
+
+        <footer class="footer">
+            <p>Created by Markuss Karpovs 4252</p>
+            <a href="https://github.com/mk-btc0" target="_blank" class="github-link">[ GitHub: mk-btc0 ]</a>
+        </footer>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalMsg"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
