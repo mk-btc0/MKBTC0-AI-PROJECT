@@ -3,7 +3,6 @@
 # ⚡ MKBTC0 AI HUB
 
 [![AI Hub](https://img.shields.io/badge/MKBTC0-AI_HUB-38bdf8?style=for-the-badge)](https://github.com/mk-btc0)
-[![License](https://img.shields.io/badge/license-MIT-f43f5e?style=for-the-badge)](LICENSE)
 
 ## 🚀 About
 
