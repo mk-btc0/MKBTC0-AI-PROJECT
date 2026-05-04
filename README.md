@@ -20,8 +20,6 @@
 - `console.html` — CMD terminal
 - `logs.html` — activity logs
 - `glossary.html` — AI dictionary
-- `quiz.html` — AI quiz
-- `compare.html` — model comparison
 - `login.html` — authentication
 
 ## 🔗 Links
