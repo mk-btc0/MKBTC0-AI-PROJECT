@@ -26,6 +26,7 @@
 
 | Link | Type |
 |------|------|
+| [📄 Web ] https://mk-btc0.github.io/MKBTC0-AI-PROJECT/index.html  | Website |
 | [📄 Presentation] https://drive.google.com/file/d/1O-9YwVrVn_9vcpKErBZVoJMhk8warnRy/view](https://drive.google.com/drive/folders/1x307CR_VlRUtffpMCPduAwDlgn0I4dy0?usp=sharing  | Google Slides |
 | [🐙 GitHub (https://github.com/mk-btc0 | Profile |
 
