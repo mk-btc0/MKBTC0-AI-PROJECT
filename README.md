@@ -24,13 +24,9 @@
 
 ## 🔗 Links
 
-| Link | Type |
-|------|------|
-| [📄 Google drive all files]  https://drive.google.com/drive/folders/1x307CR_VlRUtffpMCPduAwDlgn0I4dy0?usp=sharing | All files  |
-| [📄 Web ] [https://mk-btc0.github.io/MKBTC0-AI-PROJECT/index.html ](https://drive.google.com/file/d/1kcNtsObEPVqFkV_tMJbWyCmOJRkGrGHG/view?usp=sharing) | Website |
-| [📄 Presentation] https://drive.google.com/drive/folders/1x307CR_VlRUtffpMCPduAwDlgn0I4dy0?usp=sharing ](https://drive.google.com/file/d/1kcNtsObEPVqFkV_tMJbWyCmOJRkGrGHG/view?usp=sharing) | Google Slides |
-| [📄 Video]  https://drive.google.com/file/d/1c-MUEiQAiC7xzAQ_ribg9LagNL_STYZz/view?usp=sharing | Video about my project |
-| [🐙 GitHub (https://github.com/mk-btc0 | Profile |
+Website: MKBTC0 AI HUB : https://mk-btc0.github.io/MKBTC0-AI-PROJECT/
+Website: MKBTC0 AI HUB : https://mk-btc0.github.io/MKBTC0-AI-PROJECT/
+Website: MKBTC0 AI HUB : https://mk-btc0.github.io/MKBTC0-AI-PROJECT/
 
 ## 👨‍💻 Author
 
